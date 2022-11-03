@@ -132,6 +132,7 @@ class Question(models.Model):
     question_text = models.CharField(max_length=300, default=" ")
     # question grade/mark, integer defualt is 0
     grade = models.IntegerField(default=0)
+    course = models.ManyToManyField(Course)
 
     # <HINT> A sample model method to calculate if learner get the score of the question
     def is_get_score(self, selected_ids):
@@ -164,3 +165,4 @@ class Submission(models.Model):
     enrollment = models.ForeignKey(Enrollment, on_delete=models.CASCADE)
     choices = models.ManyToManyField(Choice)
 #    Other fields and methods you would like to design
+# error message
